@@ -90,7 +90,9 @@ with open (INPUT_PATH) as f:
     for text in input_data:
         digit_text = text.lower()
         for k, v in DIGITS_DICT.items():
-            digit_text =  digit_text.replace(k, v)
+            digit_text =  digit_text.replace(k, k[0]+v+k[-1])
+            # to account for overlapping digits when replace a 
+            # digit text include the first and last digits
 
         first = None
         last = None
